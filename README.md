@@ -3,22 +3,38 @@
 A modern, QR-powered restaurant menu app built with Next.js, React, and Tailwind CSS.
 
 ## Features
+
 - Digital menu with categories and food items
+- Search and filter menu items
 - QR code generation for easy menu access
-- User reviews and ratings
+- Food item detail pages with ratings and descriptions
 - Mobile-friendly responsive design
 - Built with Next.js App Router, pnpm, and TypeScript
+
+## Project Structure
+
+<code>
+ScanFeast/
+├── app/           # Next.js app directory (routes, pages, layouts)
+├── components/    # Reusable React components (UI, menu, cards, et)
+├── hooks/         # Custom React hooks
+├── lib/           # Data and utility functions (menu, food data)
+├── public/        # Static assets (images, icons, etc.)
+├── styles/        # Global styles (Tailwind CSS)
+</code>
 
 ## Getting Started
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (v18 or newer recommended)
 - [pnpm](https://pnpm.io/) (recommended) or npm/yarn
 
 ### Installation
+
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/scanfeast.git
+   git clone https://github.com/yashumak/ScanFeast---Scan-to-see-menu.git
    cd scanfeast
    ```
 2. Install dependencies:
@@ -29,15 +45,19 @@ A modern, QR-powered restaurant menu app built with Next.js, React, and Tailwind
    ```
 
 ### Development
+
 Start the development server:
+
 ```sh
 pnpm dev
 # or
 npm run dev
 ```
+
 Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Building for Production
+
 ```sh
 pnpm build
 # or
@@ -45,34 +65,31 @@ npm run build
 ```
 
 ### Running in Production
+
 ```sh
 pnpm start
 # or
 npm start
 ```
 
+## Customization
+
+- Update menu and food data in `lib/food-data.ts` and `lib/menu-data.ts`
+- Replace or add images in the `public/` directory
+- Customize styles in `styles/globals.css` and `tailwind.config.ts`
+
 ## Deployment
 
 ### Deploying to Vercel (Recommended)
+
 1. Push your code to GitHub, GitLab, or Bitbucket.
-2. Go to [vercel.com](https://vercel.com), sign up/log in, and import your repository.
+2. Go to [vercel.com](https://scanfeast-scan-to-see-menu.vercel.app/), sign up/log in, and import your repository.
 3. Vercel will auto-detect Next.js and deploy your app.
-4. Set environment variables in the Vercel dashboard if needed.
 
 ### Other Hosting
+
 You can also deploy to Netlify, your own server, or any platform that supports Node.js and Next.js.
 
-## Project Structure
-- `app/` - Next.js app directory (pages, layouts, routes)
-- `components/` - Reusable React components
-- `lib/` - Data and utility functions
-- `public/` - Static assets (images, favicon, etc.)
-- `styles/` - Global styles (Tailwind CSS)
-
-## Customization
-- Update menu data in `lib/menu-data.ts` and `lib/food-data.ts`
-- Replace placeholder images in `public/`
-- Customize styles in `styles/globals.css` and `tailwind.config.ts`
-
 ## License
-MIT 
+
+MIT
