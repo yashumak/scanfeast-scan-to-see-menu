@@ -26,40 +26,11 @@ export default function ItemDetailPage({ params: paramsPromise }: { params: Prom
   }
 
   // Function to get appropriate food image based on category and item
-  const getFoodImage = (foodItem) => {
-    if (!foodItem) return "/placeholder.svg"
-    const foodImages = {
-      // Chaat items
-      c1: "/placeholder.svg?height=400&width=600&text=Pani+Puri",
-      c2: "/placeholder.svg?height=400&width=600&text=Aloo+Tikki",
-      c3: "/placeholder.svg?height=400&width=600&text=Bhel+Puri",
-      c4: "/placeholder.svg?height=400&width=600&text=Dahi+Puri",
-      c5: "/placeholder.svg?height=400&width=600&text=Samosa+Chaat",
-
-      // Rolls items
-      r1: "/placeholder.svg?height=400&width=600&text=Kathi+Roll",
-      r2: "/placeholder.svg?height=400&width=600&text=Paneer+Tikka+Roll",
-      r3: "/placeholder.svg?height=400&width=600&text=Chicken+Frankie",
-
-      // Curries items
-      cu1: "/placeholder.svg?height=400&width=600&text=Pav+Bhaji",
-      cu2: "/placeholder.svg?height=400&width=600&text=Chole+Bhature",
-      cu3: "/placeholder.svg?height=400&width=600&text=Vada+Pav",
-
-      // Sweets items
-      s1: "/placeholder.svg?height=400&width=600&text=Jalebi",
-      s2: "/placeholder.svg?height=400&width=600&text=Kulfi",
-      s3: "/placeholder.svg?height=400&width=600&text=Gulab+Jamun",
-
-      // Beverages items
-      b1: "/placeholder.svg?height=400&width=600&text=Masala+Chai",
-      b2: "/placeholder.svg?height=400&width=600&text=Lassi",
-      b3: "/placeholder.svg?height=400&width=600&text=Nimbu+Pani",
-    }
-
-    // Return the specific image for this food item, or a category-based fallback
-    return foodImages[foodItem.id] || `/placeholder.svg?text=${encodeURIComponent(foodItem.name || "Food")}`
-  }
+  const getFoodImage = (foodItem: any) => {
+    if (!foodItem) return "/placeholder.svg";
+    // Use the image property from the foodItem data if available
+    return foodItem.image || `/placeholder.svg?text=${encodeURIComponent(foodItem.name || "Food")}`;
+  };
 
   // Find the item from all categories
   const allItems = [
