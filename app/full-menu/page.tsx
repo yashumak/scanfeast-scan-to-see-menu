@@ -156,10 +156,9 @@ function FoodItemCard({ item }: { item: FoodItem }) {
           src={item.image || "/placeholder.svg?height=400&width=600&text=" + encodeURIComponent(item.name)}
           alt={item.name}
           fill
+          loading="eager"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {item.isVegetarian && <Badge className="absolute top-2 right-2 bg-green-500 hover:bg-green-600">Veg</Badge>}
-        {!item.isVegetarian && <Badge className="absolute top-2 right-2 bg-red-500 hover:bg-red-600">Non-Veg</Badge>}
         {item.isSpicy && (
           <Badge variant="outline" className="absolute top-2 left-2 bg-white/80 text-red-500 border-red-200">
             Spicy

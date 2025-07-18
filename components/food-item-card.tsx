@@ -14,17 +14,9 @@ export default function FoodItemCard({ item }: { item: FoodItem }) {
             src={item.image || "/placeholder.svg?height=200&width=200&text=" + encodeURIComponent(item.name)}
             alt={item.name}
             fill
+            loading="eager"
             className="object-cover"
           />
-          {item.isVegetarian ? (
-            <div className="absolute bottom-1 left-1 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-            </div>
-          ) : (
-            <div className="absolute bottom-1 left-1 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-              <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            </div>
-          )}
         </div>
         <CardContent className="p-2 sm:p-3 flex-1">
           <div className="flex justify-between items-start">

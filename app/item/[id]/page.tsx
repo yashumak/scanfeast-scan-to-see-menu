@@ -95,7 +95,7 @@ export default function ItemDetailPage({ params: paramsPromise }: { params: Prom
 
       <div className="container mx-auto px-4 pt-4 max-w-3xl">
         <div className="relative h-48 sm:h-64 md:h-80 rounded-xl overflow-hidden mb-4">
-          <Image src={foodImage || "/placeholder.svg"} alt={item.name} fill className="object-cover" />
+          <Image src={foodImage || "/placeholder.svg"} alt={item.name} fill loading="eager" className="object-cover" />
           <Button
             variant="ghost"
             size="icon"

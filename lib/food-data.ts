@@ -71,7 +71,7 @@ export const streetFoodData = {
       description:
         "Crispy puris topped with potatoes, yogurt, and various chutneys. A cooling, flavorful treat popular in Amravati, Maharashtra, especially during hot summer evenings.",
       price: 45,
-      image: "/chaat/Dahi Puri.jpg",
+      image: "/chaat/Dahi Puri.webp",
       isVegetarian: true,
       isSpicy: false,
       region: "Maharashtra",
@@ -135,7 +135,7 @@ export const streetFoodData = {
       description:
         "Spicy potato mixture stuffed in a bun, topped with pomegranate, peanuts, and sev. A sweet-spicy treat from Maharashtra, popular in Amravati.",
       price: 30,
-      image: "/chaat/Dabeli.jpg",
+      image: "/chaat/Dabeli.webp",
       isVegetarian: true,
       isSpicy: true,
       region: "Maharashtra",
@@ -151,7 +151,7 @@ export const streetFoodData = {
       description:
         "Spicy sprouted bean curry served with pav, onions, and farsan. A fiery, flavorful breakfast and snack in Amravati, Maharashtra.",
       price: 50,
-      image: "/chaat/Misal Pav.jpg",
+      image: "/chaat/Misal Pav.webp",
       isVegetarian: true,
       isSpicy: true,
       region: "Maharashtra",
@@ -201,7 +201,7 @@ export const streetFoodData = {
       description:
         "Soft rumali roti filled with marinated and grilled paneer tikka. A popular vegetarian street roll in Amravati, Maharashtra, known for its smoky, spicy taste.",
       price: 75,
-      image: "/rolls/Paneer Tikka Roll.jpg",
+      image: "/rolls/Paneer Tikka Roll.webp",
       isVegetarian: true,
       isSpicy: true,
       region: "Maharashtra",
@@ -217,7 +217,7 @@ export const streetFoodData = {
       description:
         "Spiced chicken wrapped in a thin flatbread with special masala. A favorite non-veg street food in Amravati, Maharashtra, loved for its bold flavors.",
       price: 90,
-      image: "/rolls/Chicken Frankie.jpg",
+      image: "/rolls/Chicken Frankie.jpeg",
       isVegetarian: false,
       isSpicy: true,
       region: "Maharashtra",
@@ -233,7 +233,7 @@ export const streetFoodData = {
       description:
         "Soft paratha filled with spiced egg, onions, and chutney. A protein-rich, spicy street roll popular in Amravati, Maharashtra.",
       price: 50,
-      image: "/rolls/Egg Roll.jpg",
+      image: "/rolls/Egg Roll.jpeg",
       isVegetarian: false,
       isSpicy: true,
       region: "Maharashtra",
@@ -248,7 +248,7 @@ export const streetFoodData = {
       description:
         "Thin flatbread filled with spicy mixed vegetables, onions, and sauces. A favorite vegetarian roll in Amravati, Maharashtra, for quick bites.",
       price: 45,
-      image: "/rolls/Veg Frankie.jpg",
+      image: "/rolls/Veg Frankie.webp",
       isVegetarian: true,
       isSpicy: true,
       region: "Maharashtra",
@@ -293,7 +293,7 @@ export const streetFoodData = {
       description:
         "Rumali roti filled with spicy paneer bhurji, onions, and chutney. A protein-packed vegetarian roll in Amravati, Maharashtra.",
       price: 75,
-      image: "/rolls/Paneer Bhurji Roll.jpg",
+      image: "/rolls/Paneer Bhurji Roll.webp",
       isVegetarian: true,
       isSpicy: true,
       region: "Maharashtra",
@@ -434,7 +434,7 @@ export const streetFoodData = {
       description:
         "Matki (moth beans) cooked in spicy gravy, served with pav. A nutritious, protein-rich curry popular in Amravati, Maharashtra.",
       price: 35,
-      image: "/curries/Matki Usal.jpg",
+      image: "/curries/Matki Usal.webp",
       isVegetarian: true,
       isSpicy: true,
       region: "Maharashtra",
@@ -496,7 +496,7 @@ export const streetFoodData = {
       description:
         "Deep-fried pretzel-shaped sweets soaked in sugar syrup. A festive favorite in Amravati, Maharashtra, enjoyed hot and fresh from local sweet shops.",
       price: 30,
-      image: "/sweets/Jalebi.jpg",
+      image: "/sweets/Jalebi.jpeg",
       isVegetarian: true,
       isSpicy: false,
       region: "Maharashtra",
@@ -632,7 +632,7 @@ export const streetFoodData = {
       description:
         "Crispy rice flour and jaggery cookies, deep-fried and coated with poppy seeds. A festive treat in Amravati, Maharashtra.",
       price: 30,
-      image: "/sweets/Anarsa.jpg",
+      image: "/sweets/Anarsa.jpeg",
       isVegetarian: true,
       isSpicy: false,
       region: "Maharashtra",
@@ -681,7 +681,7 @@ export const streetFoodData = {
       description:
         "Refreshing lemonade with a hint of salt and spices. A street-side favorite in Amravati, Maharashtra, perfect for quenching thirst on hot days.",
       price: 20,
-      image: "/beverages/Nimbu Pani.jpg",
+      image: "/beverages/Nimbu Pani.webp",
       isVegetarian: true,
       isSpicy: false,
       region: "Maharashtra",
@@ -726,7 +726,7 @@ export const streetFoodData = {
       description:
         "Chilled coffee blended with milk and sugar, served over ice. A popular, energizing street beverage in Amravati, Maharashtra.",
       price: 30,
-      image: "/beverages/Cold Coffee.jpg",
+      image: "/beverages/Cold Coffee.webp",
       isVegetarian: true,
       isSpicy: false,
       region: "Maharashtra",
@@ -771,7 +771,7 @@ export const streetFoodData = {
       description:
         "Spiced lemonade with cumin, mint, and black salt, served chilled. A tangy, digestive drink popular in Amravati, Maharashtra.",
       price: 15,
-      image: "/beverages/Jaljeera.jpg",
+      image: "/beverages/Jaljeera.jpeg",
       isVegetarian: true,
       isSpicy: true,
       region: "Maharashtra",
@@ -786,7 +786,7 @@ export const streetFoodData = {
       description:
         "Hot or cold milk flavored with almonds, cardamom, and saffron. A nourishing, festive beverage in Amravati, Maharashtra.",
       price: 25,
-      image: "/beverages/Badam Milk.jpg",
+      image: "/beverages/Badam Milk.webp",
       isVegetarian: true,
       isSpicy: false,
       region: "Maharashtra",
