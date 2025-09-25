@@ -11,6 +11,8 @@ import { Separator } from "@/components/ui/separator"
 import { Card, CardContent } from "@/components/ui/card"
 import { streetFoodData } from "@/lib/food-data"
 import RatingStars from "@/components/rating-stars"
+import ReviewForm from "@/components/reviews/review-form";
+import ReviewList from "@/components/reviews/review-list";
 
 export default function ItemDetailPage({ params: paramsPromise }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
@@ -146,6 +148,14 @@ export default function ItemDetailPage({ params: paramsPromise }: { params: Prom
         </div>
 
         <Separator className="my-6 bg-primary/20" />
+
+        <div className="mb-6">
+          <h3 className="text-lg font-medium text-slate-800 mb-2">Reviews</h3>
+          <div className="space-y-4">
+            <ReviewForm itemId={params.id} onSubmitted={() => { }} />
+            <ReviewList itemId={params.id} />
+          </div>
+        </div>
 
         {relatedItems.length > 0 && (
           <>

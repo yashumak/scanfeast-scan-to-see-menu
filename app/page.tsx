@@ -83,7 +83,7 @@ export default function HomePage() {
               <p className="text-sm md:text-base text-slate-600">
                 <strong className="text-primary">Street Food Delights</strong>
                 <br />
-                123 Flavor Street, Mumbai
+                Rajapeth, Amravati, Maharashtra
                 <br />
                 <a href="tel:+919876543210" className="text-secondary hover:underline">
                   +91 98765 43210
