@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI as string;
-if (!MONGODB_URI) {
-    throw new Error("MONGODB_URI is not set in environment");
-}
+// Note: don't throw at import time; it breaks build-time bundling.
+// Validate lazily when we actually attempt to connect.
+const MONGODB_URI = process.env.MONGODB_URI as string | undefined;
 
 type MongooseCache = { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 
@@ -18,6 +17,9 @@ export async function connectToDatabase(): Promise<typeof mongoose> {
     if (cache.conn) return cache.conn;
 
     if (!cache.promise) {
+        if (!MONGODB_URI) {
+            throw new Error("MONGODB_URI is not set in environment");
+        }
         cache.promise = mongoose.connect(MONGODB_URI, {
             dbName: "scanfeast",
             bufferCommands: false,
