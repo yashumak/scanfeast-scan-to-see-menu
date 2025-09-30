@@ -20,6 +20,8 @@ export default function RootLayout({
     <html lang="en" className={inter.className} style={{ colorScheme: "light" }}>
       <body>
         {children}
+        {/* Razorpay Checkout */}
+        <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
       </body>
     </html>
   )
