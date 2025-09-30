@@ -13,6 +13,7 @@ import { streetFoodData } from "@/lib/food-data"
 import RatingStars from "@/components/rating-stars"
 import ReviewForm from "@/components/reviews/review-form";
 import ReviewList from "@/components/reviews/review-list";
+import OrderNowButton from "@/components/order-now-button";
 
 export default function ItemDetailPage({ params: paramsPromise }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
@@ -115,6 +116,19 @@ export default function ItemDetailPage({ params: paramsPromise }: { params: Prom
             <p className="text-slate-500">{item.region}</p>
           </div>
           <div className="text-xl font-bold text-primary">₹{item.price}</div>
+        </div>
+
+        {/* Order Now Button */}
+        <div className="mb-6">
+          <OrderNowButton 
+            item={{
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              image: foodImage
+            }}
+            className="w-full sm:w-auto text-lg py-3 px-8"
+          />
         </div>
 
         <div className="flex items-center gap-2 mb-4">
