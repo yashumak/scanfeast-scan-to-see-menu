@@ -23,11 +23,11 @@ interface OrderFormProps {
 }
 
 export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
-    const [step, setStep] = useState<'details' | 'otp' | 'payment' | 'success'>('details');
+    const [step, setStep] = useState<'details' | 'payment' | 'success'>('details');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [orderId, setOrderId] = useState<string | null>(null);
-    
+
     // Form data
     const [formData, setFormData] = useState({
         customerName: '',
@@ -37,90 +37,17 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
         quantity: 1,
         notes: ''
     });
-    
-    // OTP data
-    const [otpData, setOtpData] = useState({
-        otp: '',
-        otpSent: false,
-        otpVerified: false
-    });
+
 
     const handleInputChange = (field: string, value: string | number) => {
         setFormData(prev => ({ ...prev, [field]: value }));
     };
 
-    const handleSendOTP = async () => {
-        if (!formData.phoneNumber) {
-            setError("Phone number is required");
-            return;
-        }
-        
-        setLoading(true);
-        setError(null);
-        
-        try {
-            const res = await fetch('/api/otp/send', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ phoneNumber: formData.phoneNumber })
-            });
-            
-            const data = await res.json();
-            
-            if (res.ok) {
-                setOtpData(prev => ({ ...prev, otpSent: true }));
-                // Show demo OTP in alert (remove in production)
-                if (data.demoOTP) {
-                    alert(`Demo OTP: ${data.demoOTP}`);
-                }
-            } else {
-                setError(data.error || "Failed to send OTP");
-            }
-        } catch (err) {
-            setError("Network error");
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleVerifyOTP = async () => {
-        if (!otpData.otp || otpData.otp.length !== 6) {
-            setError("Please enter a valid 6-digit OTP");
-            return;
-        }
-        
-        setLoading(true);
-        setError(null);
-        
-        try {
-            const res = await fetch('/api/otp/verify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    phoneNumber: formData.phoneNumber,
-                    otp: otpData.otp 
-                })
-            });
-            
-            const data = await res.json();
-            
-            if (res.ok) {
-                setOtpData(prev => ({ ...prev, otpVerified: true }));
-                setStep('payment');
-            } else {
-                setError(data.error || "Invalid OTP");
-            }
-        } catch (err) {
-            setError("Network error");
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const handleCreateOrder = async () => {
         setLoading(true);
         setError(null);
-        
+
         try {
             const res = await fetch('/api/orders', {
                 method: 'POST',
@@ -137,9 +64,9 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
                     notes: formData.notes
                 })
             });
-            
+
             const data = await res.json();
-            
+
             if (res.ok) {
                 setOrderId(data.data.orderId);
                 setStep('payment');
@@ -160,9 +87,8 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
             fetch(`/api/orders/${orderId}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     paymentStatus: 'completed',
-                    otpVerified: true,
                     orderStatus: 'confirmed'
                 })
             }).catch(console.error);
@@ -179,11 +105,6 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
             quantity: 1,
             notes: ''
         });
-        setOtpData({
-            otp: '',
-            otpSent: false,
-            otpVerified: false
-        });
         setOrderId(null);
         setError(null);
         onClose();
@@ -197,7 +118,6 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
                 <DialogHeader>
                     <DialogTitle className="text-center">
                         {step === 'details' && 'Order Details'}
-                        {step === 'otp' && 'Verify Phone Number'}
                         {step === 'payment' && 'Payment'}
                         {step === 'success' && 'Order Confirmed!'}
                     </DialogTitle>
@@ -303,66 +223,17 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
                                 </div>
                             </div>
 
-                            <Button 
-                                onClick={() => setStep('otp')} 
+                            <Button
+                                onClick={handleCreateOrder}
                                 className="w-full"
-                                disabled={!formData.customerName || !formData.phoneNumber || !formData.address || !formData.deliveryTime}
+                                disabled={!formData.customerName || !formData.phoneNumber || !formData.address || !formData.deliveryTime || loading}
                             >
-                                Continue to Verification
+                                {loading ? "Creating Order..." : "Continue to Payment"}
                             </Button>
                         </div>
                     </div>
                 )}
 
-                {step === 'otp' && (
-                    <div className="space-y-4">
-                        <div className="text-center">
-                            <p className="text-sm text-gray-600">
-                                We've sent a verification code to<br />
-                                <strong>{formData.phoneNumber}</strong>
-                            </p>
-                        </div>
-
-                        <div>
-                            <Label htmlFor="otp">Enter 6-digit OTP</Label>
-                            <Input
-                                id="otp"
-                                type="text"
-                                maxLength={6}
-                                value={otpData.otp}
-                                onChange={(e) => setOtpData(prev => ({ ...prev, otp: e.target.value.replace(/\D/g, '') }))}
-                                placeholder="000000"
-                                className="text-center text-lg tracking-widest"
-                            />
-                        </div>
-
-                        <div className="flex gap-2">
-                            <Button 
-                                onClick={handleSendOTP} 
-                                variant="outline" 
-                                className="flex-1"
-                                disabled={loading || !otpData.otpSent}
-                            >
-                                {loading ? "Sending..." : "Resend OTP"}
-                            </Button>
-                            <Button 
-                                onClick={handleVerifyOTP} 
-                                className="flex-1"
-                                disabled={loading || otpData.otp.length !== 6}
-                            >
-                                {loading ? "Verifying..." : "Verify OTP"}
-                            </Button>
-                        </div>
-
-                        <Button 
-                            onClick={() => setStep('details')} 
-                            variant="ghost" 
-                            className="w-full"
-                        >
-                            Back to Details
-                        </Button>
-                    </div>
-                )}
 
                 {step === 'payment' && (
                     <div className="space-y-4">
@@ -380,12 +251,12 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
                             onSuccess={handlePaymentSuccess}
                         />
 
-                        <Button 
-                            onClick={() => setStep('otp')} 
-                            variant="ghost" 
+                        <Button
+                            onClick={() => setStep('details')}
+                            variant="ghost"
                             className="w-full"
                         >
-                            Back to Verification
+                            Back to Details
                         </Button>
                     </div>
                 )}
@@ -404,7 +275,7 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
                                 </p>
                             )}
                         </div>
-                        
+
                         <div className="bg-green-50 p-4 rounded">
                             <p className="text-sm text-green-800">
                                 We'll send you updates about your order via SMS.
