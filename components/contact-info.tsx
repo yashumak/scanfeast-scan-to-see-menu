@@ -32,6 +32,27 @@ export default function ContactInfo() {
         </div>
       </div>
 
+      {/* Policy Links */}
+      <div className="mt-8 pt-6 border-t border-slate-200">
+        <div className="flex flex-wrap justify-center gap-4 text-xs">
+          <Link href="/pricing-policy" className="text-slate-500 hover:text-primary transition-colors">
+            Pricing Policy
+          </Link>
+          <Link href="/shipping-policy" className="text-slate-500 hover:text-primary transition-colors">
+            Shipping Policy
+          </Link>
+          <Link href="/terms-and-conditions" className="text-slate-500 hover:text-primary transition-colors">
+            Terms & Conditions
+          </Link>
+          <Link href="/privacy-policy" className="text-slate-500 hover:text-primary transition-colors">
+            Privacy Policy
+          </Link>
+          <Link href="/cancellation-refund-policy" className="text-slate-500 hover:text-primary transition-colors">
+            Cancellation/Refund Policy
+          </Link>
+        </div>
+      </div>
+
       <p className="text-xs text-slate-500 mt-6">© 2023 Street Food Delights. All rights reserved.</p>
     </div>
   )
