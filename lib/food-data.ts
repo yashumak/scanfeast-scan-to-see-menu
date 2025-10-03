@@ -770,7 +770,7 @@ export const streetFoodData = {
       name: "Jaljeera",
       description:
         "Spiced lemonade with cumin, mint, and black salt, served chilled. A tangy, digestive drink popular in Amravati, Maharashtra.",
-      price: 15,
+      price: 1,
       image: "/beverages/Jaljeera.jpeg",
       isVegetarian: true,
       isSpicy: true,

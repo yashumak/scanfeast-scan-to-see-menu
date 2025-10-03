@@ -32,7 +32,7 @@ export default function CheckoutButton({
             if (!res.ok) throw new Error(data?.error || "Failed to create order");
 
             const order = data.order;
-            const key = process.env.RAZORPAY_KEY as string | undefined;
+            const key = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID as string | undefined;
             if (!key) {
                 alert("Payment config error. Contact support.");
                 return;
