@@ -257,7 +257,7 @@ const Sidebar = React.forwardRef<
     )
   }
 )
-Sidebar.displayName = "Sidebar"
+Sidebar.displayName = "backSidebar"
 
 const SidebarTrigger = React.forwardRef<
   React.ElementRef<typeof Button>,

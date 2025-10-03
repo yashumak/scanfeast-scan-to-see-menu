@@ -254,7 +254,7 @@ export default function OrderForm({ isOpen, onClose, item }: OrderFormProps) {
                         <Button
                             onClick={() => setStep('details')}
                             variant="ghost"
-                            className="w-full"
+                            className="w-full bg-[#F5B800] hover:bg-[#F5B800]/90 text-black"
                         >
                             Back to Details
                         </Button>

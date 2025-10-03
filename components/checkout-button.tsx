@@ -64,9 +64,16 @@ export default function CheckoutButton({
     }
 
     return (
-        <button onClick={startPayment} disabled={loading} className="bg-primary text-white rounded px-4 py-2 disabled:opacity-50">
-            {loading ? "Processing..." : "Pay with Razorpay"}
-        </button>
+        <div className="flex justify-center items-center min-h-[80px]">
+            <button
+                onClick={startPayment}
+                disabled={loading}
+                className="bg-primary text-white rounded px-4 py-2 disabled:opacity-50"
+            >
+                {loading ? "Processing..." : "Pay with Razorpay"}
+            </button>
+        </div>
+
     );
 }
 
