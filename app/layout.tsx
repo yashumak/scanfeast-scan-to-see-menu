@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: "Street Food Delights",
   description: "Explore authentic Indian street food with detailed descriptions and prices in INR",
   generator: "v0.dev",
+  icons: {
+    icon: "/favicon.png",        // main favicon
+    shortcut: "/favicon.png",    // browser shortcut
+    apple: "/favicon.png", // optional for iOS
+  },
 }
 
 export default function RootLayout({
